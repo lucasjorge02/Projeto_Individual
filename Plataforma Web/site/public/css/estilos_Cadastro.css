@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Poor+Story&family=Rubik+Mono+One&family=Signika:wght@500&display=swap');
+
+body {
+  margin: 0;
+    height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+}
+
+.banner{
+  width: 100%;
+  height: 700px;
+  background-image: url("../assets/imgs/background-cadastro.png");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;  
+}
+
+.degrade {
+    width: auto;
+    height: 104px;
+    background-image: linear-gradient(rgba(81, 81, 213, 0.5), rgba(0, 0, 0, 0));
+    display: flex;
+}
+
+.container {
+  margin: auto;
+  width: 88%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.degrade .container .Logo {
+  font-family: 'Acme', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.degrade .container .Logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.degrade .container .Logo h1{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 32px;
+  width: fit-content;
+  font-weight: 800;
+}
+
+.degrade .container .navbar {
+  color:#ffffff;
+  font-family: 'Signika', sans-serif;
+  font-size: 22px ;
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.agora {
+  font-weight: 800;
+  color: white;
+}
+/* Formulário */
+.cartão{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+}
+
+
+.cartão .card {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    border-radius: 20px;
+    background-color: rgba(250, 223, 200, 0.89);
+
+  }
+  
+  .card h2 {
+    font-size: 28px;
+    font-family: 'Signika', sans-serif;
+  }
+  
+  .card h4 {
+    font-size: 16px;
+    font-family: 'Signika', sans-serif;
+  }
+  
+  .banner #div_erros_login {
+    margin-top: 15px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  .alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .formulario .tipo_campo {
+    font-size: 20px;
+    font-family: 'Signika', sans-serif;
+    text-align: center;
+    font-weight: 600 !important;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  input ::placeholder{
+    padding: 10px;
+    text-align: left;
+    font-family: 'Signika', sans-serif;
+}
+   
+  .btn {
+    font-family: 'Signika', sans-serif;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 15px;
+    color: white;
+    background-color: rgb(228, 140, 62);
+    width: 120px;
+    align-self: center;
+    margin-top: 5px;
+  }
+  
+  .loading-div {
+    width: 50px;
+    margin: auto;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
+
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  font-size: 15px;
+  height: 150px;
+  color: #fff;
+  background-color: rgb(179, 115, 63);
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .contato {
+  display: flex;
+  justify-content: center;
+  width: 160px;
+}
+
+.informações {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.messagem {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato img{
+  align-self: center;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+#img-su{
+  width: 230px;
+  height: 100px;
+}

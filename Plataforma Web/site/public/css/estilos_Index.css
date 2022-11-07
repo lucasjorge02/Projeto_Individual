@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Poor+Story&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Poor+Story&family=Rubik+Mono+One&family=Signika:wght@500&display=swap');
 
 body {
   margin: 0;
-  padding: 0;
+  
 }
 
 html {
@@ -12,12 +12,13 @@ html {
 header{
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 
 .banner{
   width: 100%;
   height: 700px;
-  background-image: url("/public/assets/imgs/background.jpg");
+  background-image: url("../assets/imgs/background.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-color: rgba(0, 0, 0, 0.15);
@@ -52,16 +53,18 @@ header{
 }
 
 .container .Logo h1{
+  font-family: 'Fredoka One', cursive;
   color: white;
-  font-size: 26px;
+  font-size: 32px;
   width: fit-content;
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .container .navbar {
-  font-family: 'Poor Story', cursive;
+  color:#ffffff;
+  font-family: 'Signika', sans-serif;
   font-size: 22px ;
-  width: 450px;
+  width: 600px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -78,19 +81,7 @@ header{
   color: white;
 }
 
-.container .contato {
-  display: flex;
-  justify-content: center;
-  width: 160px;
-}
 
-.contato img{
-  align-self: center;
-  margin-left: 5px;
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-}
 
  .Marca {
   display: flex;
@@ -109,8 +100,7 @@ header{
 /* Informação da série */
 
 .série {
-  height: 800px;
-  background-color: #FFFFFF;
+  background-color: rgb(255,255,218);
   background-image: url();
 }
 
@@ -120,21 +110,21 @@ header{
   width: 100%;
 }
 
-.contexto {
+.série .contexto {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 5%;
+  margin-bottom: 5%;
   color: #000000; 
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
-  height: auto;
   width: 600px;
-  background-color: rgb(250, 152, 71);
-  border-bottom: 5px solid rgb(216, 134, 66);
+  background-color: rgba(222, 143, 78, 0.83);
+  border-bottom: 5px solid rgb(179, 115, 63);
 }
 
-.contexto img {
+.série .contexto img {
   margin-top: 20px;
   height: 300px;
   width: 450px;
@@ -143,175 +133,168 @@ header{
   border-right: 3px solid #000000;
 }
 
-.texto {
+.série .texto {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 24px;
-  font-family: 'Poor Story', cursive;
-  font-weight: bold;
-  text-align: justify;
-  width: 500px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+  text-align: left;
+  width: 470px;
 }
 
+.série .texto .span2{
+  margin-top: 10px;
+}
 
-/* missao visao valores */
-
-.social {
-  background-color: #e5e5e5;
+.série .caixas {
   display: flex;
+  flex-direction: column;
+  margin-right: 170px;
+
 }
 
-.social .container{
+.série .caixa-dupla{
+  display: flex;
+
+}
+.série .caixa-unica{
+  display: flex;
   justify-content: center;
+  margin-top: 20px;
+
 }
 
-.box img {
-  width: 170px;
-}
-
-.social .container .boxes {
+.série .caixinha {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 220px;
+  background-color: #E3B894;
+  border-radius: 20px;
+  margin-right: 50px;
 }
 
-.social p {
+
+.série .caixinha span, h3 {
+  width: 200px;
+  font-family: 'Signika', sans-serif;
   text-align: center;
 }
 
-.box {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.série .caixinha ul, li{
+  list-style: none;
+  text-align: center;
+  width: 2\00px;
+  padding-inline-start: 0;
 }
 
-
-.box {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.série .caixinha img{
+height: 128px;
+width: 128px;
+align-self: center;
 }
 
+/* Autora */
+.sobre-autora{
+  display: flex;
+  height: 400px;
+  background-color: rgb(250, 163, 177);
+}
+
+.sobre-autora .container{
+  display: flex;
+}
+
+.container .texto-autora{
+display: flex;
+flex-direction: column;
+width: 470px;
+justify-content: start;
+margin-left: 100px;
+}
+
+.sobre-autora .container img{
+height: 50%;
+width: 50%;
+border-radius: 90pt;
+border: 1px solid black;
+align-self: center;
+}
+
+.container .autora {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  justify-content: end;
+}
+
+.autora span {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+  text-align: center;
+}
+
+.texto-autora span{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+  text-align: left;
+}
 
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
   display: flex;
   font-size: 15px;
+  height: 150px;
+  color: #fff;
+  background-color: rgb(179, 115, 63);
 }
 
 .footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .contato {
+  display: flex;
   justify-content: center;
-  text-align: center;
+  width: 160px;
 }
 
-.footer .container .version {
-  font-size: 12px;
-}
-
-
-/* LOGIN */
-
-.banner .container .card {
-  background-color: #e5e5e5;
-  height: fit-content;
-  width: 400px;
+.informações {
   display: flex;
-  flex-direction: column;
-  color: palevioletred;
-  align-items: center;
-  border-radius: 4px;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.card {
-  display: flex;
-  justify-content: space-around;
-}
-
-.card h2 {
-  font-size: 30px;
-}
-
-.card h4 {
-  font-size: 16px;
-}
-
-.banner #div_erros_login {
-  margin-top: 15px;
-}
-
-button {
-  cursor: pointer;
-}
-
-/* FORMULARIO */
-
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
-}
-
-.card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #e6005a 3px solid;
-  padding: 10px;
-  margin-right: 10%;
-}
-
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.formulario .tipo_campo {
-  font-size: 20px;
-  font-weight: 600 !important;
-}
-
-.formulario {
+.messagem {
   display: flex;
   flex-direction: column;
 }
 
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.btn {
-  font-family: "Barlow", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
-  width: 120px;
+.contato img{
   align-self: center;
-  margin-top: 5px;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
 }
 
-.loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
-}
-
-.loading-div img {
-  height: 50px;
-  width: 50px;
+#img-su{
+  width: 230px;
+  height: 100px;
 }
 
 /* PAGINA DOS GRÁFICOS */
