@@ -25,6 +25,7 @@ function listar(req, res) {
 }
 
 function entrar(req, res) {
+
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -63,12 +64,24 @@ function entrar(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
+    var sobrenome = req.body.sobrenomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var Cep = req.body.CepServer;
+    var Comp = req.body.CompServer;
+    var Numero = req.body.NumServer;
 
-    // Faça as validações dos valores
+    // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
     if (nome == undefined) {
-        res.status(400).send("Seu nome está undefined!");
+        res.status(400).send("Seu nome está indefinido!");
+    }  else if (sobrenome == undefined) {
+        res.status(400).send("Seu sobrenome está indefinido!");
+    }  else if (Cep == undefined) {
+        res.status(400).send("Seu CEP está indefinido!");
+    }  else if (Numero == undefined) {
+        res.status(400).send("Seu Numero residencial está indefinido!");
+    }  else if (Comp == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
@@ -76,7 +89,7 @@ function cadastrar(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha)
+        usuarioModel.cadastrar(nome, sobrenome, email, Cep, Comp, Numero, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
