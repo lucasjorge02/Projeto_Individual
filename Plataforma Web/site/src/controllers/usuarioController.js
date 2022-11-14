@@ -67,29 +67,23 @@ function cadastrar(req, res) {
     var sobrenome = req.body.sobrenomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var Cep = req.body.CepServer;
-    var Comp = req.body.CompServer;
-    var Numero = req.body.NumServer;
+    var Cpf = req.body.CpfServer;
 
     // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
     if (nome == undefined) {
         res.status(400).send("Seu nome está indefinido!");
     }  else if (sobrenome == undefined) {
         res.status(400).send("Seu sobrenome está indefinido!");
-    }  else if (Cep == undefined) {
+    }  else if (Cpf == undefined) {
         res.status(400).send("Seu CEP está indefinido!");
-    }  else if (Numero == undefined) {
-        res.status(400).send("Seu Numero residencial está indefinido!");
-    }  else if (Comp == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
-    } else if (email == undefined) {
+    }  else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, Cep, Comp, Numero, senha)
+        usuarioModel.cadastrar(nome, sobrenome, email, Cpf, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);

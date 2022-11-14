@@ -56,14 +56,14 @@ header{
   color: white;
   font-size: 32px;
   width: fit-content;
-  font-weight: 800;
+  font-weight: 200;
 }
 
 .degrade .container .navbar {
   color:#ffffff;
   font-family: 'Signika', sans-serif;
   font-size: 22px ;
-  width: 600px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +99,11 @@ header{
     border-radius: 20px;
     background-color: rgba(250, 223, 200, 0.89);
   }
-  
+  /* .card h2 {
+    font-size: 26px;
+    font-family: 'Signika', sans-serif;
+    color: white;
+  } */
   .card h4 {
     font-size: 16px;
     font-family: 'Signika', sans-serif;
@@ -168,7 +172,7 @@ header{
     font-size: 18px;
     padding: 10px 15px;
     color: white;
-    background-color: rgb(228, 140, 62);
+    background-color: rgb(230, 139, 180);
     width: 120px;
     align-self: center;
     margin-top: 5px;

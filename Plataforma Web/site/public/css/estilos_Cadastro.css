@@ -54,14 +54,14 @@ header{
   color: white;
   font-size: 32px;
   width: fit-content;
-  font-weight: 800;
+  font-weight: 200;
 }
 
 .degrade .container .navbar {
   color:#ffffff;
   font-family: 'Signika', sans-serif;
   font-size: 22px ;
-  width: 600px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,7 +93,7 @@ header{
     height: fit-content;
     align-items: center;
     justify-content: center;
-    width: 600px;
+    width: 500px;
     border-radius: 20px;
     background-color: rgba(250, 223, 200, 0.89);
 
@@ -115,7 +115,6 @@ header{
   
   button {
     cursor: pointer;
-
   }
   
   .alerta_erro{
@@ -155,16 +154,19 @@ header{
     display: flex;
   }
 
+
   .formulario .quadro{
     display: flex;
+    height: auto;
     flex-direction: column;
     margin:10px;
   }
 
-  input {
+  .quadro input {
     padding: 10px;
     text-align: center;
     border-radius: 10px;
+    margin-bottom: 20px ;
   }
 
   input ::placeholder{
@@ -184,7 +186,8 @@ header{
     background-color: rgb(228, 140, 62);
     width: 120px;
     align-self: center;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
   
   .loading-div {

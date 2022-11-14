@@ -19,7 +19,7 @@
                     
              <div class="Logo">
                 <img src="assets/imgs/Logo.png">
-                <h1 class="titulo">StarUniverse</h1>
+                <a href="index.html"><h1 class="titulo">StarUniverse</h1></a>
              </div>
              <ul class="navbar">
                 <li><a href="./index.html">Home</a></li>
@@ -49,9 +49,6 @@
                         <span class="span_msg">E-mail:</span>
                         <input id="ipt_email" type="text" placeholder="abcd@xpto.com">
 
-                        <span class="span_msg">Número:</span>
-                        <input id="ipt_Num" type="text" placeholder="Número">
-
                         <span class="span_msg">Senha:</span>
                         <input id="ipt_senha" type="password" placeholder="******">
                     </div>
@@ -59,11 +56,8 @@
                         <span class="span_msg">Sobrenome:</span>
                         <input id="ipt_sobrenome" type="text" placeholder="Sobrenome">
                     
-                        <span class="span_msg">CEP:</span>
-                        <input id="ipt_Cep" type="text" placeholder="CEP">
-                 
-                        <span class="span_msg">Complemento:</span>
-                        <input id="ipt_Comp" type="text" placeholder="Complemento">
+                        <span class="span_msg">CPF:</span>
+                        <input id="ipt_Cpf" type="text" placeholder="CEP">
 
                         <span class="span_msg">Confirmação da Senha:</span>
                         <input id="ipt_ConfSenha" type="password" placeholder="******">
@@ -117,13 +111,12 @@
         var nomeVar = ipt_nome.value;
         var sobrenomeVar = ipt_sobrenome.value;
         var emailVar = ipt_email.value;
-        var CepVar = ipt_Cep.value;
-        var CompVar = ipt_Comp.value;
-        var NumVar = ipt_Num.value;
+        var CpfVar = ipt_Cpf.value;
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_ConfSenha.value;
-
-        if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || CepVar == "" || NumVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        
+        // validar para bloquear o dado seguir
+        if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || CpfVar == ""  || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
@@ -145,9 +138,7 @@
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 sobrenomeServer: sobrenomeVar,
-                CepServer: CepVar,
-                NumServer: NumVar,
-                CompServer: CompVar,
+                CpfServer: CpfVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })

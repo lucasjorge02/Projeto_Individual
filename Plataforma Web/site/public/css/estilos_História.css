@@ -5,10 +5,6 @@ body {
   
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 header{
   display: flex;
   flex-direction: column;
@@ -17,8 +13,8 @@ header{
 
 .banner{
   width: 100%;
-  height: 700px;
-  background-image: url("../assets/imgs/background.jpg");
+  height: 670px;
+  background-image: url("../assets/imgs/historia.webp");
   background-size: cover;
   background-attachment: fixed;
   background-color: rgba(0, 0, 0, 0.15);
@@ -28,11 +24,11 @@ header{
 .degrade {
     width: auto;
     height: 104px;
-    background-image: linear-gradient(rgb(222, 134, 149), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(rgb(0, 20, 88), rgba(0, 0, 0, 0));
     display: flex;
 }
 
-.container {
+.header .container {
   margin: auto;
   width: 88%;
   display: flex;
@@ -57,20 +53,19 @@ header{
   color: white;
   font-size: 32px;
   width: fit-content;
-  font-weight: 800;
+  font-weight: 200;
 }
 
 .container .navbar {
   color:#ffffff;
   font-family: 'Signika', sans-serif;
   font-size: 22px ;
-  width: 600px;
+  width: 500px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
 }
-
 .header a {
   text-decoration: none;
   color: white;
@@ -82,22 +77,71 @@ header{
 }
 
 
+/* HISTORIA */
+.historia .container{
+display: flex;
+justify-content:center ;
+}
 
- .Marca {
+ .texto {
   display: flex;
   width: 100%;
-  height: 460px;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 
-.Marca img{
-  margin-right: 70px;
-  width: 566px;
-  height: 250px;
+.texto .titulo{
+  font-size: 33px;  
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+.texto span{
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+}
+.card-esqrd {
+display: flex;
+flex-direction: column;
+width: 400px;
+margin-right: 50px;
+text-align: justify;
 }
 
+.card-esqrd img{
+  height: 200px;
+  width: 400px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
 
+.linha-vertical{
+  height: 1300px; 
+  box-sizing: border-box; 
+  border-left: 2px solid black;
+
+}
+
+.card-direito img{
+  height: 300px;
+  width: 300px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+
+  align-self: center;
+}
+
+.card-direito {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+  text-align: justify;
+}
 
 /* FOOTER */
 
@@ -110,8 +154,11 @@ header{
 }
 
 .footer .container {
+  margin: auto;
+  width: 88%;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .container .contato {
