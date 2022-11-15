@@ -5,10 +5,6 @@ body {
     height: auto;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 header{
   display: flex;
   flex-direction: column;

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Poor+Story&family=Rubik+Mono+One&family=Signika:wght@500&display=swap');
+
+body {
+  margin: 0;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+}
+
+.container {
+  margin: auto;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .Logo {
+  font-family: 'Acme', sans-serif;
+  display: flex;
+  align-items: center;
+  }
+
+
+.container .Logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.container .Logo h1{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 32px;
+  width: fit-content;
+  font-weight: 200;
+}
+
+.container .navbar {
+  color:#ffffff;
+  font-family: 'Signika', sans-serif;
+  font-size: 22px ;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.agora {
+  font-weight: 800;
+  color: white;
+}
