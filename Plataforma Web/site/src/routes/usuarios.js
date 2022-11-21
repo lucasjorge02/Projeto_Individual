@@ -16,8 +16,20 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.post("/favoritar", function (req, res) {
+    usuarioController.favoritar(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
+});
+
+router.post("/temfav", function (req, res) {
+    usuarioController.temfav(req, res);
+});
+
+router.post("/deletar", function (req, res) {
+    usuarioController.deletar(req, res);
 });
 
 module.exports = router;

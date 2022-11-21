@@ -2,13 +2,14 @@
 
 body {
   margin: 0;
+
 }
 
-header{
+.header {
   display: flex;
   flex-direction: column;
   height: auto;
-
+  background-color: rgb(1, 217, 145);
 }
 
 .container {
@@ -58,4 +59,232 @@ header{
 .agora {
   font-weight: 800;
   color: white;
+}
+
+/* Seção de Tracks */
+
+.Musica{
+  margin-bottom: 50px;
+}
+
+.Musica .container {
+  display: flex;
+  justify-content: center;
+}
+
+.info-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.img-nome{
+  display: flex;
+  width: 70%;
+  align-items: center;
+  justify-content: left;
+}
+
+.img-nome img{
+  height: 70px;
+  width: 70px;
+  border-radius: 100px;
+}
+
+
+.img-nome h2 {
+  font-family: 'Signika', sans-serif;
+  align-self: flex-end;
+  margin-left: 5px;
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+
+.img-nome select{
+  border-radius: 20px;
+  height: 40px;
+  background-color: antiquewhite;
+  text-align: center;
+  font-family: 'Signika', sans-serif;
+  }
+
+.musicas-btn {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.musicas-btn button {
+  margin-left: 10px;
+  border-radius: 20px;
+  border-color: 2px solid black;
+  font-family: 'Signika', sans-serif;
+  font-size: 22px;
+
+}
+
+.song1 {
+  background-color: yellow;
+}
+
+.song2 {
+  background-color: aqua;
+}
+
+.song3 {
+  background-color: plum;
+}
+
+.song4 {
+  background-color: rgb(243, 22, 158);
+}
+
+.Tocador {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin-top: 40px;
+
+}
+
+.Tocador audio {
+  width: 600px;
+}
+
+.Tocador img {
+  width: 32px;
+  height: 32px;
+  align-self: center;
+  margin-left: 5px;
+}
+/* Letras */
+
+.Letras {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.Letras .titulo{
+  font-size: 33px;  
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.Letras .titulo2{
+  font-size: 33px;  
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.Letras span{
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+}
+
+.card-esqrd {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-right: 50px;
+  text-align: right;
+}
+  
+.linha-vertical{
+    height: auto; 
+    box-sizing: border-box; 
+    border-left: 2px solid black;
+}
+  
+.card-direito {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.card-mtr {
+  display: flex;
+  background-color: beige;
+  border-radius: 20px;
+  border-bottom: solid black 10px;
+  border-right: solid black 10px;
+  margin-top: 60px;
+  padding: 50px;
+  width: 600px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-mtr img{
+  height: 220px;
+  width: 220px;
+  border-radius: 20px;
+  border: 3px solid white;
+}
+
+.card-mtr span {
+  margin-left: 30px;
+  font-size: 33px;
+  font-family: 'Signika', sans-serif;
+  text-align: left;
+  letter-spacing: 0.3;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  font-size: 15px;
+  height: 150px;
+  color: #fff;
+  background-color: rgb(179, 115, 63);
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .contato {
+  display: flex;
+  justify-content: center;
+  width: 160px;
+}
+
+.informações {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.messagem {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato img{
+  align-self: center;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+#img-su{
+  width: 230px;
+  height: 100px;
 }

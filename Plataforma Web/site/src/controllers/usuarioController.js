@@ -60,6 +60,37 @@ function entrar(req, res) {
     }
 
 }
+function temfav(req, res) {
+
+    var idUsuario = req.body.idUsuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("O usuário não está definido no controllers!");
+    }else {
+        
+        usuarioModel.temfav(idUsuario)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length >= 0) {
+                        console.log(resultado);
+                        res.json(resultado);
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -101,9 +132,72 @@ function cadastrar(req, res) {
     }
 }
 
+function favoritar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idMusica = req.body.idMusica;
+    var idUsuario = req.body.idUsuario;
+    
+    // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
+    if (idMusica == undefined) {
+        res.status(400).send("undefine no id musica controllers!");
+    }  else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.favoritar(idUsuario, idMusica)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function deletar(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idMusica = req.body.idMusica;
+    var idUsuario = req.body.idUsuario;
+    
+    // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
+    if (idMusica == undefined) {
+        res.status(400).send("undefine no id musica controllers!");
+    } if (idUsuario == undefined) {
+        res.status(400).send("undefine no id Usuario controllers!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.deletar(idUsuario, idMusica)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
+    favoritar,
+    temfav,
+    deletar,
     listar,
     testar
 }

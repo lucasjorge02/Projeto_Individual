@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Fredoka+One&family=Poor+Story&family=Rubik+Mono+One&family=Signika:wght@500&display=swap');
+
+body {
+  margin: 0;
+}
+
+
+header{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.banner{
+  width: 100%;
+  height: 550px;
+  background-image: url("../assets/imgs/background-enquetes.png");
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.15);
+  background-blend-mode: darken;
+}
+
+.degrade {
+    width: auto;
+    height: 104px;
+    background-image: linear-gradient(rgb(135, 255, 125), rgba(0, 0, 0, 0));
+    display: flex;
+}
+
+.container {
+  margin: auto;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .Logo {
+  font-family: 'Acme', sans-serif;
+  display: flex;
+  align-items: center;
+  }
+
+
+.container .Logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.container .Logo h1{
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 32px;
+  width: fit-content;
+  font-weight: 200;
+}
+
+.container .navbar {
+  color:#ffffff;
+  font-family: 'Signika', sans-serif;
+  font-size: 22px ;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.agora {
+  font-weight: 800;
+  color: white;
+}
+
+ .Marca {
+  display: flex;
+  width: 100%;
+  height: 460px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.Marca img{
+  margin-right: 70px;
+  width: 500px;
+  height: 212px;
+}
+
+/* Informação da série */
+
+.série {
+  background-color: rgb(255,255,218);
+  background-image: url();
+}
+
+.série .container {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.série .contexto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #000000; 
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  width: 600px;
+  background-color: rgba(222, 143, 78, 0.83);
+  border-bottom: 5px solid rgb(179, 115, 63);
+}
+
+.série .contexto img {
+  margin-top: 20px;
+  height: 300px;
+  width: 450px;
+  border-radius: 30px;
+  border-bottom: 4px solid #000000;
+  border-right: 3px solid #000000;
+}
+
+.série .texto {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+  text-align: left;
+  width: 470px;
+}
+
+.texto button{
+align-self:center;
+justify-self: center;
+border-radius: 20px;
+text-decoration: none;
+margin-top: 20px;
+background-color: rgb(255, 0, 0);
+font-family: 'Acme', sans-serif;
+font-size: 20px;
+width: 140px;
+height: 40px;
+border-bottom: 4px solid #000000;
+border-right: 4px solid #000000;
+}
+
+.série .texto .span2{
+  margin-top: 10px;
+}
+
+.série .caixas {
+  display: flex;
+  flex-direction: column;
+  margin-right: 170px;
+
+}
+
+.série .caixa-dupla{
+  display: flex;
+
+}
+.série .caixa-unica{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+}
+
+.série .caixinha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 220px;
+  background-color: #E3B894;
+  border-radius: 20px;
+  margin-right: 50px;
+}
+
+
+.série .caixinha span, h3 {
+  width: 200px;
+  font-family: 'Signika', sans-serif;
+  text-align: center;
+}
+
+.série .caixinha ul, li{
+  list-style: none;
+  text-align: center;
+  width: 2\00px;
+  padding-inline-start: 0;
+}
+
+.série .caixinha img{
+height: 128px;
+width: 128px;
+align-self: center;
+}
+
+/* Autora */
+.sobre-autora{
+  display: flex;
+  height: 450px;
+  background-color: rgb(250, 163, 177);
+}
+
+.sobre-autora .container{
+  display: flex;
+}
+
+.container .texto-autora{
+display: flex;
+flex-direction: column;
+width: 470px;
+justify-content: start;
+margin-left: 100px;
+}
+
+.texto-autora h2{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 33px;
+  font-family: 'Signika', sans-serif;
+  text-align: center;
+
+}
+
+.texto-autora .justify{
+  text-align: justify;
+}
+
+.sobre-autora .container img{
+height: 300px;
+width: 300px;
+border-radius: 180px;
+border: 1px solid black;
+align-self: center;
+}
+
+.container .autora {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  justify-content: end;
+ 
+}
+
+.texto-autora span{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: 'Signika', sans-serif;
+  text-align: left;
+  letter-spacing: 0.2px;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  font-size: 15px;
+  height: 150px;
+  color: #fff;
+  background-color: rgb(179, 115, 63);
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .contato {
+  display: flex;
+  justify-content: center;
+  width: 160px;
+}
+
+.informações {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.messagem {
+  display: flex;
+  flex-direction: column;
+}
+
+.contato img{
+  align-self: center;
+  margin-left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+#img-su{
+  width: 230px;
+  height: 100px;
+}

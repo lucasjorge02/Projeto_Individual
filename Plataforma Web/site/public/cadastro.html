@@ -44,23 +44,23 @@
                     <div class="formulario">
                     <div class="quadro">
                         <span class="span_msg">Nome:</span>
-                        <input id="ipt_nome" type="text" placeholder="Nome">
+                        <input id="ipt_nome" type="text" placeholder="Nome" onchange="semBorda(1)">  
                         
                         <span class="span_msg">E-mail:</span>
-                        <input id="ipt_email" type="text" placeholder="abcd@xpto.com">
+                        <input id="ipt_email" type="email" placeholder="abcd@xpto.com" onchange="semBorda(2)">
 
                         <span class="span_msg">Senha:</span>
-                        <input id="ipt_senha" type="password" placeholder="******">
+                        <input id="ipt_senha" type="password" placeholder="******" onchange="semBorda(3)">
                     </div>
                     <div class="quadro">
                         <span class="span_msg">Sobrenome:</span>
-                        <input id="ipt_sobrenome" type="text" placeholder="Sobrenome">
+                        <input id="ipt_sobrenome" type="text" placeholder="Sobrenome" onchange="semBorda(4)">
                     
                         <span class="span_msg">CPF:</span>
-                        <input id="ipt_Cpf" type="text" placeholder="CEP">
+                        <input id="ipt_Cpf" type="number" placeholder="CPF" maxlength="11" data-mask="000.000.000-00" onchange="semBorda(5)">
 
                         <span class="span_msg">Confirmação da Senha:</span>
-                        <input id="ipt_ConfSenha" type="password" placeholder="******">
+                        <input id="ipt_ConfSenha" type="password" placeholder="******" onchange="semBorda(6)">
                
                     </div>
                 </div>
@@ -103,6 +103,29 @@
 </html>
 
 <script>
+
+    function semBorda(V) {
+    
+        if( V == 1){
+           ipt_nome.style.border = '2px solid black'; 
+        }
+        if( V == 2){
+            ipt_email.style.border ='2px solid black';
+        }
+        if( V == 3){
+            ipt_senha.style.border = '2px solid black';
+        }
+        if( V == 4){
+            ipt_sobrenome.style.border ='2px solid black';
+        }
+        if( V == 5){
+            ipt_Cpf.style.border = '2px solid black';
+        }
+        if( V == 6){
+            ipt_ConfSenha.style.border = '2px solid black';
+        }
+    }
+
     function cadastrar() {
         aguardar();
 
@@ -114,16 +137,74 @@
         var CpfVar = ipt_Cpf.value;
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_ConfSenha.value;
-        
-        // validar para bloquear o dado seguir
-        if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || CpfVar == ""  || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+       
+        if (nomeVar == "" || !isNaN(nomeVar) || nomeVar.length <= 2) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Verifique se o nome foi digitado corretamente";
+            ipt_nome.value = '';
+            ipt_nome.style.border = '2px solid red';
 
             finalizarAguardar();
             return false;
-        }
-        else {
+        } else if (sobrenomeVar == "" || !isNaN(sobrenomeVar) || sobrenomeVar.length <= 2){
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Verifique se o sobrenome foi digitado corretamente";
+            ipt_sobrenome.value = '';
+            ipt_sobrenome.style.border = '2px solid red';
+            
+            // deixa a borda vermelha
+
+            finalizarAguardar();
+            return false;
+        } else if (email == "" || !isNaN(emailVar) || emailVar.length <= 3){
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Verifique se o e-mail foi digitado corretamente";
+            // deixa a borda vermelha
+            ipt_email.value = '';
+            ipt_email.style.border = '2px solid red';
+
+            finalizarAguardar();
+            return false;
+        } else if (CpfVar == "" || CpfVar.length != 11 ){
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Verfique se você escreveu todos os digitos do seu cpf";
+            ipt_Cpf.value = '';
+            ipt_Cpf.style.border = '2px solid red';
+            // deixa a borda vermelha
+
+            finalizarAguardar();
+            return false;
+        }  else if (senhaVar != confirmacaoSenhaVar){
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Suas senhas não coincidem!";
+            ipt_senha.value = '';
+            ipt_ConfSenha.value = '';
+            ipt_senha.style.border = '2px solid red';
+            ipt_ConfSenha.style.border = '2px solid red';
+            // deixa a borda vermelha
+
+            finalizarAguardar();
+            return false;
+        } else if (senhaVar == "" || senhaVar.length < 8){
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Digite uma senha que possua no mínimo 8 caracteres";
+            ipt_senha.value = '';
+            ipt_senha.style.border = '2px solid red';
+            // deixa a borda vermelha
+
+            finalizarAguardar();
+            return false;
+        } else if (confirmacaoSenhaVar == "" || confirmacaoSenhaVar.length < 8){
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = "Digite uma senha que possua no mínimo 8 caracteres";
+            ipt_ConfSenha.value = '';
+            ipt_ConfSenha.style.border = '2px solid red';
+            // deixa a borda vermelha
+
+            finalizarAguardar();
+            return false;
+        }else {
             setInterval(sumirMensagem, 5000)
         }
 

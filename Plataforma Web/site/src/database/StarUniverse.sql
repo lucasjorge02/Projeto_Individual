@@ -1,4 +1,4 @@
-
+DROP DATABASE IF EXISTS staruniverse;
 CREATE DATABASE IF NOT EXISTS StarUniverse;
 USE StarUniverse;
 
@@ -27,3 +27,34 @@ CREATE TABLE IF NOT EXISTS Votacao (
   CONSTRAINT ctfkMusica FOREIGN KEY (fkMusica) REFERENCES Musica(id),
   CONSTRAINT ctfkUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(id) 
   );
+  
+CREATE TABLE IF NOT EXISTS MusicaFav (
+fkMusica INT, FOREIGN KEY (fkMusica) REFERENCES Musica(id),
+fkUsuario INT, FOREIGN KEY (fkUsuario) REFERENCES Usuario(id)
+);
+
+INSERT INTO Musica (nome) values 
+('Drift Away'),
+('Independent Together'),
+('Love Like You'),
+('True Kinda Love');
+
+SELECT * FROM MusicaFav;
+select * from Usuario;
+select fkMusica, count(fkMusica) from MusicaFav group by fkMusica;
+
+insert into MusicaFav(fkUsuario, fkMusica) values 
+(1,2),
+(1,3),
+(1,4),
+(2,4),
+(2,3),
+(2,1),
+(3,1);
+
+select fkMusica as Musica, count(fkMusica) voto from MusicaFav group by fkMusica
+
+union all
+
+SELECT * FROM MusicaFav  WHERE fkUsuario = 2;
+
