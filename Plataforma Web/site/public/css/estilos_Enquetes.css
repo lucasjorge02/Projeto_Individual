@@ -314,3 +314,48 @@ align-self: center;
   width: 230px;
   height: 100px;
 }
+
+/* Carrosel */
+
+
+
+
+
+.Noticias .container {
+  width: 88%;
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrossel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (1.5rem * (var(--ira-ver)-1)))/var(--ira-ver));
+  grid-gap: 1.5rem;
+
+  align-items: center ;
+  position: relative;
+  left: 0;
+  transition: 2s;
+}
+
+.carrossel > * {
+    aspect-ratio: 10px;
+}
+
+.carrossel img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  display: block;
+  border-radius: .5rem;
+}
+.carrossel div, img {
+  height: auto;
+}
+.caixa-hidden {
+  overflow-x: hidden;
+  max-width: 700px;
+}
