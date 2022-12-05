@@ -10,35 +10,35 @@
 
     <link rel="icon" href="../assets/imgs/IconSite.png" sizes="32-32px">
     <link rel="stylesheet" href="../css/estilos_enquetes.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
-<body>
+<body onload="select()">
 
     <div class="header">
-        <div class="banner">
-            <div class="degrade">
-                <div class="container">
-
-                    <div class="Logo">
-                        <img src="../assets/imgs/Logo.png">
-                        <a href="index.html">
-                            <h1 class="titulo">StarUniverse</h1>
-                        </a>
-                    </div>
-                    <ul class="navbar">
-                        <li><a href="home-logado.html">Home</a></li>
-                        <li><a href="Historia-logado.html">História</a></li>
-                        <li><a href="Musica.html">Música</a></li>
-                        <li class="agora">Enquete</li>
-                        <li>|</li>
-                        <li><a href="../index.html">Logout</a></li>
-                    </ul>
-                </div>
+        <div class="container">
+            <div class="Logo">
+                <img src="../assets/imgs/Logo.png">
+                <a href="home-logado.html">
+                    <h1 class="titulo">StarUniverse</h1>
+                </a>
             </div>
+            <ul class="navbar">
+                <li><a href="home-logado.html">Home</a></li>
+                <li><a href="Historia-logado.html">História</a></li>
+                <li><a href="Musica.html">Música</a></li>
+                <li class="agora">Enquete</li>
+                <li>|</li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
         </div>
     </div>
 
     <div class='Noticias'>
+        <div class="container1">
+            <span>Notícias</span>
+        </div>
         <div class="container">
             <div class="caixa-hidden">
                 <div class="carrossel">
@@ -59,31 +59,41 @@
         </div>
     </div>
 
-
     <div class="enquetes">
         <div class="container">
-            <div class="bar-titulo">
-                <span>Enquetes da Semana</span>
+            <div class="titulo">
+                <span> Enquetes da Semana:</span>
+                <hr>
             </div>
-            <hr>
         </div>
         <div class="container">
-            <div class="enq-duplas">
-                <div class="caixatopo4">
-                    <div class="bolinha4"></div>
-                    <div class="sensores">Hectare 9</div>
-                    <div class="estado">Estado crítico: Temperatura <strong class="cor_strong">acima</strong> do
-                        ideal</div>
+            <div class="caixa-perg">
+                <img src="../assets/imgs/pink-pearl.jpg" onclick="mostrar(1)">
+                <span id="perg1">Quem feriu o olho da Pérola Rosa?</span>
+                <div id='div_enq1' class="botoes">
+                    <button class="btn1" onclick="votar('Pink Diamond')">Pink Diamond</button>
+                    <button class="btn2" onclick="votar('White Diamond')">White Diamond</button>
                 </div>
-                <div class="caixatopo5">
-                    <div class="bolinha5"></div>
-                    <div class="sensores">Hectare 10</div>
-                    <div class="estado">Estado alerta: Umidade <strong class="cor_strong2">acima</strong> do ideal
-                    </div>
+                <div id='graf1'>
+                    <canvas id="myChart" style="display: none;"></canvas>
                 </div>
+                <span id="resp1">R: Pink Diamond</span>
+            </div>
+            <div class="caixa-perg">
+                <img src="../assets/imgs/lapis-lazuli.jpg" onclick="mostrar(2)">
+                <span id="perg2">Qual elemento Lápis-Lazúli controla?</span>
+                <div id='div_enq2' class="botoes">
+                    <button class="btn1" onclick="votar('Gelo')">Gelo</button>
+                    <button class="btn2" onclick="votar('Água')">Água</button>
+                </div>
+                <div id='graf2'>
+                    <canvas id="myChart1" style="display: none;"></canvas>
+                </div>
+                <span id="resp2" style="display: none;">R: Água</span>
             </div>
         </div>
     </div>
+
 
     <div class="footer">
         <div class="container">
@@ -98,7 +108,8 @@
                             src="../assets/imgs/facebook.png" alt="facebook" width="32px"></a>
                     <a href="https://www.instagram.com/staruniverse_oficcial/"><img src="../assets/imgs/instagram.png"
                             alt="Instagram" width="32px"></a>
-                    <img src="../assets/imgs/twitter.png" alt="Twitter" width="32px">
+                    <a href="https://twitter.com/SUAminoBrasil"><img src="../assets/imgs/twitter.png" alt="Twitter"
+                            width="32px"></a>
                 </div>
             </div>
         </div>
@@ -107,37 +118,296 @@
 </body>
 
 </html>
+
 <script>
 
+    // Criar uma variável constante que vai guardar todos o elementos do '.carrossel'
     const carrossel = document.querySelector('.carrossel');
-    const ImagensItens = document.querySelectorAll('.carrossel > *');
-    const ImagensLength = ImagensItens.length;
-    var iraVer = 1;
-    var totalScroll = 0;
+    // Criando uma variável constante que vai guardar tudo que tem dentro do '.carrossel div' dentro de um vetor
+    const Imagens = document.querySelectorAll('.carrossel > div');
+    const qtdImg = Imagens.length;
+    const Ver = 1;
+    var totScroll = 0;
 
-    carrossel.style.setProperty('--ira-ver', iraVer);
-    for (let index = 0; index < iraVer; index++) {
-        // carrossel.insertAdjacentElement('antesDfim', ImagensItens[index].outerHTML)
 
-    }
-
-    var passagemAuto = setInterval(scrolling, 4000);
-
+    // intervalo para passar imagem
+    var passar = setInterval(scrolling, 4000)
+    
     function scrolling() {
-        totalScroll++;
-        if (totalScroll == ImagensLength) {
-            clearInterval(passagemAuto);
-            totalScroll = 0;
-            carrossel.style.trasition = '4s';
+        // passa a imagem
+        totScroll++;
+        
+        if(totScroll == Imagens.length){
+            clearInterval(passar);
+            carrossel.style.trasition = '2s';
             carrossel.style.left = '0';
-            passagemAuto = setInterval(scrolling, 4000);
+            passar = setInterval(scrolling, 4000)
+            totScroll = 0;
         }
-        const tamanhoElem = document.querySelector('.carrossel > :first-child').offsetWidth + 24;
-        carrossel.style.left = `-${totalScroll * tamanhoElem}px`;
+
+        // Pegando o tamanho para depois passar dando a impressão do carrossel mudando (mas aqui ele só pega o tamanho para depois mudar) 
+        const TamEle = document.querySelector('.carrossel > div :first-child').offsetWidth + 24;
+        carrossel.style.left = `-${totScroll * TamEle}px`;
         carrossel.style.trasition = '2s';
+
     }
 
     function redirecionar() {
         location.href = "Historia.html";
     }
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+    var NumPergunta = 0;
+    var vt_fkEnquete = [];
+
+    var enq1 = {
+        res1: 0,
+        res2: 0
+    }
+    var enq2 = {
+        res1: 0,
+        res2: 0
+    }
+    var dados = {
+        labels: ['Pink Diamond', 'White Diamond'],
+        datasets: [{
+            backgroundColor: ["rgb(255,105,180)", "rgb(211,211,211)"],
+            label: 'Porcent (%)',
+            data: []
+        }]
+    };
+
+
+    var dados2 = {
+        labels: ['Gelo', 'Água'],
+        datasets: [{
+            backgroundColor: ["rgb(173,216,230)", "rgb(0,32,255)"],
+            label: 'Porcent (%)',
+            data: []
+        }]
+    };
+
+    var click = 0;
+    var click2 = 0;
+
+    function select() {
+        fetch("/usuarios/temVoto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idUsuario: idUsuario
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    vt_fkEnquete = [];
+
+                    for (let i = 0; i < json.length; i++) {
+                        if (json[i].resposta == 'Pink Diamond') {
+                            enq1.res1 = json[i].Votos;
+                        }
+                        if (json[i].resposta == 'White Diamond') {
+                            enq1.res2 = json[i].Votos;
+                        }
+                        if (json[i].resposta == 'Gelo') {
+                            enq2.res1 = json[i].Votos;
+                        }
+                        if (json[i].resposta == 'Água') {
+                            enq2.res2 = json[i].Votos;
+                        }
+                        if (json[i].resposta == '1' || json[i].resposta == '2') {
+                            // eu sei que tem mas preciso clickar então vou fazer um metodo mostra()
+                            vt_fkEnquete.push(Number(json[i].resposta));
+                        }
+                    }
+                    dados.datasets[0].data = [];
+                    dados2.datasets[0].data = [];
+
+                    var soma1 = enq1.res1;
+                    soma1 += enq1.res2;
+
+                    var soma2 = enq2.res1;
+                    soma2 += enq2.res2;
+
+                    dados.datasets[0].data.push((enq1.res1/soma1*100).toFixed(2));
+                    dados.datasets[0].data.push((enq1.res2/soma1*100).toFixed(2));
+
+                    dados2.datasets[0].data.push((enq2.res1/soma2*100).toFixed(2));
+                    dados2.datasets[0].data.push((enq2.res2/soma2*100).toFixed(2));
+
+
+                    console.log(vt_fkEnquete);
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                });
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+                resposta.text().then(texto => {
+                console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function votar(Resp) {
+
+        if (Resp == 'White Diamond' || Resp == 'Pink Diamond') {
+            NumPergunta = 1;
+        }
+        if (Resp == 'Gelo' || Resp == 'Água') {
+            NumPergunta = 2;
+        }
+
+        fetch("/usuarios/votar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idPergunta: NumPergunta,
+                idUsuario: idUsuario,
+                Resposta: Resp,
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                select();
+
+                if (NumPergunta == 1) {
+                    div_enq1.style.display = 'none';
+                    myChart.style.display = 'flex';
+                    myChart.style.height = '300px';
+                    myChart.style.width = '300px';
+                    resp1.style.display = 'flex';
+                    click = 1;
+                }
+                if (NumPergunta == 2) {
+                    div_enq2.style.display = 'none';
+                    myChart1.style.display = 'flex';
+                    myChart1.style.height = '300px';
+                    myChart1.style.width = '300px';
+                    resp2.style.display = 'flex';
+                    click2 = 1;
+                }
+
+                console.log('DEU CERTOOOO!!')
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+
+    }
+
+
+
+    function mostrar(num) {
+
+        if (num == 1) {
+            if (vt_fkEnquete[0] == 1 || vt_fkEnquete[1] == 1) {
+                if (click == 0) {
+                    perg1.style.display = 'flex';
+                    myChart.style.display = 'flex';
+                    myChart.style.height = '300px';
+                    myChart.style.width = '300px';
+                    resp1.style.display = 'flex';
+                    click = 1;
+                    console.log('Entrei na parte que ele votou, mostrar o grafico (PP)')
+
+                } else if (click == 1) {
+                    perg1.style.display = 'none';
+                    myChart.style.display = 'none';
+                    resp1.style.display = 'none';
+                    click = 0;
+                    console.log('Entrei na parte que ele votou, ocultar o grafico (PP)')
+                }
+            } else {
+                if (click == 0) {
+                    perg1.style.display = 'flex';
+                    div_enq1.style.display = 'flex';
+                    click = 1;
+                    console.log('Entrei na parte que ele NÃO votou, mostrar o botão (PP)')
+
+                } else if (click == 1) {
+                    perg1.style.display = 'none';
+                    div_enq1.style.display = 'none';
+                    click = 0;
+                    console.log('Entrei na parte que ele NÃO votou, ocultar o botão (PP)')
+                }
+            }
+
+        } else if (num == 2) {
+            if (vt_fkEnquete[0] == 2 || vt_fkEnquete[1] == 2) {
+                if (click2 == 0) {
+                    perg2.style.display = 'flex';
+                    myChart1.style.display = 'flex';
+                    myChart1.style.height = '300px';
+                    myChart1.style.width = '300px';
+                    resp2.style.display = 'flex';
+                    click2 = 1;
+                    console.log('Entrei na parte que ele votou, mostrar o grafico (LL)')
+                } else if (click2 == 1) {
+                    perg2.style.display = 'none';
+                    myChart1.style.display = 'none';
+                    resp2.style.display = 'none';
+                    click2 = 0;
+                    console.log('Entrei na parte que ele votou, ocultar o grafico (LL)')
+                }
+            } else {
+                if (click2 == 0) {
+                    perg2.style.display = 'flex';
+                    div_enq2.style.display = 'flex';
+                    click2 = 1;
+                    console.log('Entrei na parte que ele NÃO votou, mostrar o botão (PP)')
+                } else if (click2 == 1) {
+                    perg2.style.display = 'none';
+                    div_enq2.style.display = 'none';
+                    click2 = 0;
+                    console.log('Entrei na parte que ele NÃO votou, ocultar o botão (PP)')
+                }
+            }
+        }
+
+    }
+
+    const config = {
+        type: 'doughnut',
+        data: dados,
+    };
+
+    const cty = new Chart(
+        document.getElementById(`myChart`),
+        config
+    );
+
+    const config2 = {
+        type: 'doughnut',
+        data: dados2,
+    };
+
+    const ctx = new Chart(
+        document.getElementById(`myChart1`),
+        config2
+    );
+
 </script>

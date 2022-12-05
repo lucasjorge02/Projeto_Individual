@@ -11,24 +11,27 @@
     <title>StarUniverse | Cadastro</title>
     <script src="./js/funcoes.js"></script>
 </head>
+
 <body>
     <div class="header">
         <div class="banner">
             <div class="degrade">
                 <div class="container">
-                    
-             <div class="Logo">
-                <img src="assets/imgs/Logo.png">
-                <a href="index.html"><h1 class="titulo">StarUniverse</h1></a>
-             </div>
-             <ul class="navbar">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="Historia.html">História</a></li>
-                <li><a href="./login.html">Login</a></li>
-                <li>|</li>
-                <li class="agora">Cadastro</li>
-            </ul>
-             </div>
+
+                    <div class="Logo">
+                        <img src="assets/imgs/Logo.png">
+                        <a href="index.html">
+                            <h1 class="titulo">StarUniverse</h1>
+                        </a>
+                    </div>
+                    <ul class="navbar">
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="Historia.html">História</a></li>
+                        <li><a href="./login.html">Login</a></li>
+                        <li>|</li>
+                        <li class="agora">Cadastro</li>
+                    </ul>
+                </div>
             </div>
             <div class="alerta_erro">
                 <div class="card_erro" id="cardErro">
@@ -38,43 +41,38 @@
 
             <div class="container tamanho-conteudo">
                 <div class="cartão">
-                <div class="card medio">
-                    <div class="column">
-                    <h2>Bem-vindo!</h2>
-                    <div class="formulario">
-                    <div class="quadro">
-                        <span class="span_msg">Nome:</span>
-                        <input id="ipt_nome" type="text" placeholder="Nome" onchange="semBorda(1)">  
-                        
-                        <span class="span_msg">E-mail:</span>
-                        <input id="ipt_email" type="email" placeholder="abcd@xpto.com" onchange="semBorda(2)">
+                    <div class="card medio">
+                        <div class="column">
+                            <h2>Bem-vindo!</h2>
+                            <div class="formulario">
+                                <div class="quadro">
+                                    <span class="span_msg">Nome:</span>
+                                    <input id="ipt_nome" type="text" placeholder="Nome" onchange="semBorda(1)">
 
-                        <span class="span_msg">Senha:</span>
-                        <input id="ipt_senha" type="password" placeholder="******" onchange="semBorda(3)">
-                    </div>
-                    <div class="quadro">
-                        <span class="span_msg">Sobrenome:</span>
-                        <input id="ipt_sobrenome" type="text" placeholder="Sobrenome" onchange="semBorda(4)">
-                    
-                        <span class="span_msg">CPF:</span>
-                        <input id="ipt_Cpf" type="number" placeholder="CPF" maxlength="11" data-mask="000.000.000-00" onchange="semBorda(5)">
+                                    <span class="span_msg">E-mail:</span>
+                                    <input id="ipt_email" type="email" placeholder="abcd@xpto.com"
+                                        onchange="semBorda(2)">
 
-                        <span class="span_msg">Confirmação da Senha:</span>
-                        <input id="ipt_ConfSenha" type="password" placeholder="******" onchange="semBorda(6)">
-               
+                                    <span class="span_msg">Senha:</span>
+                                    <input id="ipt_senha" type="password" placeholder="******" onchange="semBorda(3)">
+
+                                    <span class="span_msg">Confirmação da Senha:</span>
+                                    <input id="ipt_ConfSenha" type="password" placeholder="******"
+                                        onchange="semBorda(6)">
+
+                                </div>
+                            </div>
+                            <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                        </div>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/circle-loading.gif" id="loading-gif">
+                        </div>
+
+                        <div id="div_erros_login">
+
+                        </div>
                     </div>
                 </div>
-                <button class="btn" onclick="cadastrar()">Cadastrar</button>
-                    </div>
-                    <div id="div_aguardar" class="loading-div">
-                        <img src="./assets/circle-loading.gif" id="loading-gif">
-                    </div>
-    
-                    <div id="div_erros_login">
-    
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -89,9 +87,12 @@
                 </div>
                 <img id="img-su" src="assets/imgs/SU.png" alt="Steven Universe">
                 <div class="contato">
-                    <a href='https://www.facebook.com/people/Star-Universe/100087773362645/'><img src="assets/imgs/facebook.png" alt="facebook" width="32px"></a>
-                    <a href="https://www.instagram.com/staruniverse_oficcial/"><img src="assets/imgs/instagram.png" alt="Instagram" width="32px"></a>
-                    <img src="assets/imgs/twitter.png" alt="Twitter" width="32px">
+                    <a href='https://www.facebook.com/people/Star-Universe/100087773362645/'><img
+                            src="assets/imgs/facebook.png" alt="facebook" width="32px"></a>
+                    <a href="https://www.instagram.com/staruniverse_oficcial/"><img src="assets/imgs/instagram.png"
+                            alt="Instagram" width="32px"></a>
+                    <a href="https://twitter.com/SUAminoBrasil"><img src="assets/imgs/twitter.png" alt="Twitter"
+                            width="32px"></a>
                 </div>
             </div>
         </div>
@@ -105,23 +106,17 @@
 <script>
 
     function semBorda(V) {
-    
-        if( V == 1){
-           ipt_nome.style.border = '2px solid black'; 
+
+        if (V == 1) {
+            ipt_nome.style.border = '2px solid black';
         }
-        if( V == 2){
-            ipt_email.style.border ='2px solid black';
+        if (V == 2) {
+            ipt_email.style.border = '2px solid black';
         }
-        if( V == 3){
+        if (V == 3) {
             ipt_senha.style.border = '2px solid black';
         }
-        if( V == 4){
-            ipt_sobrenome.style.border ='2px solid black';
-        }
-        if( V == 5){
-            ipt_Cpf.style.border = '2px solid black';
-        }
-        if( V == 6){
+        if (V == 6) {
             ipt_ConfSenha.style.border = '2px solid black';
         }
     }
@@ -132,13 +127,14 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = ipt_nome.value;
-        var sobrenomeVar = ipt_sobrenome.value;
-        var emailVar = ipt_email.value;
-        var CpfVar = ipt_Cpf.value;
         var senhaVar = ipt_senha.value;
         var confirmacaoSenhaVar = ipt_ConfSenha.value;
+        var emailVar = ipt_email.value;
+        var usuario = ipt_email.value.substring(0, ipt_email.value.indexOf("@"));
+        var dominio = ipt_email.value.substring(ipt_email.value.indexOf("@") + 1, ipt_email.value.length);
 
-       
+        console.log(usuario, dominio);
+
         if (nomeVar == "" || !isNaN(nomeVar) || nomeVar.length <= 2) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Verifique se o nome foi digitado corretamente";
@@ -147,17 +143,11 @@
 
             finalizarAguardar();
             return false;
-        } else if (sobrenomeVar == "" || !isNaN(sobrenomeVar) || sobrenomeVar.length <= 2){
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = "Verifique se o sobrenome foi digitado corretamente";
-            ipt_sobrenome.value = '';
-            ipt_sobrenome.style.border = '2px solid red';
-            
-            // deixa a borda vermelha
 
-            finalizarAguardar();
-            return false;
-        } else if (emailVar == "" || !isNaN(emailVar) || emailVar.length <= 3){
+        } else if ((usuario.length < 1) || (dominio.length < 3) || (usuario.search("@") != -1) ||
+            (dominio.search("@") != -1) || (usuario.search(" ") != -1) || (dominio.search(" ") != -1) ||
+            (dominio.search(".") == -1) || (dominio.indexOf(".") < 1) || (dominio.lastIndexOf(".") > dominio.length - 1) || emailVar.length == 0) {
+
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Verifique se o e-mail foi digitado corretamente";
             // deixa a borda vermelha
@@ -166,16 +156,8 @@
 
             finalizarAguardar();
             return false;
-        } else if (CpfVar == "" || CpfVar.length != 11 ){
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = "Verfique se você escreveu todos os digitos do seu cpf";
-            ipt_Cpf.value = '';
-            ipt_Cpf.style.border = '2px solid red';
-            // deixa a borda vermelha
 
-            finalizarAguardar();
-            return false;
-        }  else if (senhaVar != confirmacaoSenhaVar){
+        } else if (senhaVar != confirmacaoSenhaVar) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Suas senhas não coincidem!";
             ipt_senha.value = '';
@@ -186,7 +168,7 @@
 
             finalizarAguardar();
             return false;
-        } else if (senhaVar == "" || senhaVar.length < 8){
+        } else if (senhaVar == "" || senhaVar.length < 8) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Digite uma senha que possua no mínimo 8 caracteres";
             ipt_senha.value = '';
@@ -195,7 +177,7 @@
 
             finalizarAguardar();
             return false;
-        } else if (confirmacaoSenhaVar == "" || confirmacaoSenhaVar.length < 8){
+        } else if (confirmacaoSenhaVar == "" || confirmacaoSenhaVar.length < 8) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Digite uma senha que possua no mínimo 8 caracteres";
             ipt_ConfSenha.value = '';
@@ -204,7 +186,7 @@
 
             finalizarAguardar();
             return false;
-        }else {
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
@@ -218,8 +200,6 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                sobrenomeServer: sobrenomeVar,
-                CpfServer: CpfVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
@@ -230,12 +210,12 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
 
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
-                
+
                 limparFormulario();
                 finalizarAguardar();
             } else {

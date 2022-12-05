@@ -32,4 +32,12 @@ router.post("/deletar", function (req, res) {
     usuarioController.deletar(req, res);
 });
 
+router.post("/votar", function (req, res) {
+    usuarioController.votar(req, res);
+});
+
+router.post("/temVoto", function (req, res) {
+    usuarioController.temVoto(req, res);
+});
+
 module.exports = router;

@@ -74,7 +74,7 @@
                 </div>
             </div>
 
-
+            <div class="contex">
             <div class="contexto">
                 <img src="https://media.tenor.com/OSDz3ROW8BsAAAAd/crystal-gems-steven-universe.gif">
                 <div class="texto">
@@ -89,6 +89,7 @@
                     <button onclick="redirecionar()">Saiba Mais</button>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
@@ -122,7 +123,7 @@
                 <div class="contato">
                     <a href='https://www.facebook.com/people/Star-Universe/100087773362645/'><img src="../assets/imgs/facebook.png" alt="facebook" width="32px"></a>
                     <a href="https://www.instagram.com/staruniverse_oficcial/"><img src="../assets/imgs/instagram.png" alt="Instagram" width="32px"></a>
-                    <img src="../assets/imgs/twitter.png" alt="Twitter" width="32px">
+                    <a href="https://twitter.com/SUAminoBrasil"><img src="../assets/imgs/twitter.png" alt="Twitter" width="32px"></a>
                 </div>
             </div>
         </div>
@@ -131,7 +132,31 @@
 </body>
 </html>
 <script>
-  function redirecionar() {
-   location.href="Historia-logado.html";
-  }
+     const elementos = document.querySelectorAll('.contexto')
+    const slideClass = 'slide';
+    const slideClass2 = 'slide2';
+
+    function animeScroll() {
+        const topoScroll = window.pageYOffset + (window.innerHeight * 3 / 3.5);
+        elementos.forEach(function (e) {
+            
+            if (topoScroll > e.offsetTop) {
+                e.classList.remove(slideClass2)
+                e.classList.add(slideClass)
+            } else {
+                e.classList.remove(slideClass)
+                e.classList.add(slideClass2)
+            }
+        })
+
+    }
+
+    window.addEventListener('scroll', function () {
+        animeScroll();
+    })
+
+    function redirecionar() {
+        location.href = "Historia.html";
+        console.log('asdsad')
+    }
 </script>

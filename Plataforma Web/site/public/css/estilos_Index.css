@@ -5,6 +5,22 @@ body {
   
 }
 
+body::-webkit-scrollbar {
+  width: 18px;               /* Largura do area do scroll bar */
+}
+body::-webkit-scrollbar-track {
+  background:rgb(250, 223, 200);    /* cor do fundo do scroll */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(222, 134, 149);    /* cor da barra do scroll */
+  border-radius: 5px;            
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(235, 156, 169, 0.9);    /* color of the scroll thumb */
+  border-radius: 5px;      
+}
 
 header{
   display: flex;
@@ -41,6 +57,8 @@ header{
   font-family: 'Acme', sans-serif;
   display: flex;
   align-items: center;
+  text-shadow: 6px 5px 4px rgba(0,0,0,0.7);
+
   }
 
 
@@ -66,6 +84,7 @@ header{
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  text-shadow: 4px 3px 3px rgba(0,0,0,0.7);
 }
 
 .header a {
@@ -90,6 +109,7 @@ header{
   margin-right: 70px;
   width: 500px;
   height: 212px;
+  filter:drop-shadow(10px 10px 10px rgba(0,0,0,0.7));
 }
 
 /* Informação da série */
@@ -101,23 +121,62 @@ header{
 
 .série .container {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   width: 100%;
 }
 
-.série .contexto {
+.contex {
+  overflow-x: hidden;
+}
+
+.contexto {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 5%;
+  margin-left: 90%;
   margin-bottom: 5%;
   color: #000000; 
   border-bottom-left-radius: 30px;
   border-top-left-radius: 30px;
   width: 600px;
+  right:0;
   background-color: rgba(222, 143, 78, 0.83);
   border-bottom: 5px solid rgb(179, 115, 63);
+
+}
+
+.slide {
+  animation-name: slide;
+  animation-duration: 3s;
+  margin-left: 0;
+}
+.slide2 {
+  animation-name: slide2  ;
+  animation-duration: 3s;
+  margin-left: 90%;
+}
+
+@keyframes slide {
+  from {
+    margin-left: 90%;
+      }
+
+  to {
+    margin-left: 0%;
+    
+  }
+}
+
+@keyframes slide2{
+  from {
+    margin-left: 0%;
+
+  }
+  to {
+    margin-left: 90%;
+  }
 }
 
 .série .contexto img {
@@ -153,6 +212,7 @@ width: 140px;
 height: 40px;
 border-bottom: 4px solid #000000;
 border-right: 4px solid #000000;
+cursor: pointer;
 }
 
 .série .texto .span2{
@@ -162,8 +222,7 @@ border-right: 4px solid #000000;
 .série .caixas {
   display: flex;
   flex-direction: column;
-  margin-right: 170px;
-
+  margin-left: 10%;
 }
 
 .série .caixa-dupla{
@@ -247,8 +306,9 @@ margin-left: 100px;
 height: 300px;
 width: 300px;
 border-radius: 180px;
-border: 1px solid black;
+
 align-self: center;
+filter:drop-shadow(5px 6px 4px rgba(0,0,0,0.7));
 }
 
 .container .autora {
@@ -308,9 +368,14 @@ align-self: center;
   width: 30px;
   height: 30px;
   border-radius: 15px;
+  filter:drop-shadow(4px 6px 5px rgba(0,0,0,0.7));
+}
+.contato a{
+  align-self: center;
 }
 
 #img-su{
   width: 230px;
   height: 100px;
+  filter:drop-shadow(4px 6px 5px rgba(0,0,0,0.7));
 }

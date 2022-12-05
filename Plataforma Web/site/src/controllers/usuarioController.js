@@ -34,7 +34,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -66,8 +66,8 @@ function temfav(req, res) {
 
     if (idUsuario == undefined) {
         res.status(400).send("O usuário não está definido no controllers!");
-    }else {
-        
+    } else {
+
         usuarioModel.temfav(idUsuario)
             .then(
                 function (resultado) {
@@ -95,26 +95,20 @@ function temfav(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
-    var sobrenome = req.body.sobrenomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var Cpf = req.body.CpfServer;
 
     // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
     if (nome == undefined) {
         res.status(400).send("Seu nome está indefinido!");
-    }  else if (sobrenome == undefined) {
-        res.status(400).send("Seu sobrenome está indefinido!");
-    }  else if (Cpf == undefined) {
-        res.status(400).send("Seu CEP está indefinido!");
-    }  else if (email == undefined) {
+    } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, Cpf, senha)
+        usuarioModel.cadastrar(nome, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -136,14 +130,48 @@ function favoritar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idMusica = req.body.idMusica;
     var idUsuario = req.body.idUsuario;
-    
+
     // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
     if (idMusica == undefined) {
         res.status(400).send("undefine no id musica controllers!");
-    }  else {
-        
+    } else {
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.favoritar(idUsuario, idMusica)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function votar(req, res) {
+
+    var idPergunta = req.body.idPergunta;
+    var idUsuario = req.body.idUsuario;
+    var Resposta = req.body.Resposta;
+
+    // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
+    if (idPergunta == undefined) {
+        res.status(400).send("undefine no id musica controllers!");
+    } else if (idUsuario == undefined) {
+        res.status(400).send("undefine no id musica controllers!");
+    } else if (Resposta == undefined) {
+        res.status(400).send("undefine no id musica controllers!");
+    } else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.votar(idUsuario, idPergunta, Resposta)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -165,14 +193,14 @@ function deletar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var idMusica = req.body.idMusica;
     var idUsuario = req.body.idUsuario;
-    
+
     // Faça as validações dos valores - verificações aqui para retornar a mensagem de erro
     if (idMusica == undefined) {
         res.status(400).send("undefine no id musica controllers!");
     } if (idUsuario == undefined) {
         res.status(400).send("undefine no id Usuario controllers!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.deletar(idUsuario, idMusica)
             .then(
@@ -192,6 +220,38 @@ function deletar(req, res) {
     }
 }
 
+function temVoto(req, res) {
+
+    var idUsuario = req.body.idUsuario;
+
+    if (idUsuario == undefined) {
+        res.status(400).send("O usuário não está definido no controllers!");
+    } else {
+
+        usuarioModel.temVoto(idUsuario)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length >= 0) {
+                        console.log(resultado);
+                        res.json(resultado);
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -199,5 +259,7 @@ module.exports = {
     temfav,
     deletar,
     listar,
+    votar,
+    temVoto,
     testar
 }

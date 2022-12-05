@@ -5,32 +5,19 @@ USE StarUniverse;
 CREATE TABLE IF NOT EXISTS Usuario(
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   nome VARCHAR(45) NOT NULL,
-  sobrenome VARCHAR(45) NULL,
-  CPF CHAR(11) UNIQUE NOT NULL,
   email VARCHAR(80) UNIQUE NULL, constraint ctEmail check(email like'%@%.%'),
   senha VARCHAR(100) NOT NULL
-  );
+);
+
+insert into Usuario (nome, email, senha) values
+('Lucas', 'Lucas@gmail.com', 'Lucas123'),
+('Mariana','Mariana@gmail.com', 'Mariana123'),
+('Victor', 'Victor@gmail.com', 'Victor123');
 
 
 CREATE TABLE IF NOT EXISTS Musica (
   id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   nome VARCHAR(45) NULL
-  );
-
-
-CREATE TABLE IF NOT EXISTS Votacao (
-  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  data DATETiME DEFAULT CURRENT_TIMESTAMP(),
-  Motivo VARCHAR(500) NOT NULL,
-  fkMusica INT NOT NULL,
-  fkUsuario INT NOT NULL,
-  CONSTRAINT ctfkMusica FOREIGN KEY (fkMusica) REFERENCES Musica(id),
-  CONSTRAINT ctfkUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(id) 
-  );
-  
-CREATE TABLE IF NOT EXISTS MusicaFav (
-fkMusica INT, FOREIGN KEY (fkMusica) REFERENCES Musica(id),
-fkUsuario INT, FOREIGN KEY (fkUsuario) REFERENCES Usuario(id)
 );
 
 INSERT INTO Musica (nome) values 
@@ -39,9 +26,34 @@ INSERT INTO Musica (nome) values
 ('Love Like You'),
 ('True Kinda Love');
 
-SELECT * FROM MusicaFav;
-select * from Usuario;
-select fkMusica, count(fkMusica) from MusicaFav group by fkMusica;
+CREATE TABLE IF NOT EXISTS Enquetes (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  Pergunta Varchar(90) not null
+);
+
+insert into Enquetes(Pergunta) values
+('Quem Machucou o olho da Pink Pearl?'),
+('Qual elemento da Lápis-Lazuli controla?'),
+('A música Love Like You foi feita pela Rebbeca Sugar?');
+ 
+CREATE TABLE IF NOT EXISTS Resposta (
+  fkEnquete INT NOT NULL,
+  fkUsuario INT NOT NULL,
+  CONSTRAINT ctfkEnquete FOREIGN KEY (fkEnquete) REFERENCES Enquetes(id),
+  CONSTRAINT ctfkUsuario FOREIGN KEY (fkUsuario) REFERENCES Usuario(id),
+  resposta VARCHAR(30) NOT NULL
+);
+
+insert into Resposta (fkUsuario, fkEnquete, resposta) values
+(1,1,'Pink Diamond'),
+(2,1,'White Diamond'),
+(2,2,'Gelo'),
+(3,2,'Água');
+
+CREATE TABLE IF NOT EXISTS MusicaFav (
+fkMusica INT, FOREIGN KEY (fkMusica) REFERENCES Musica(id),
+fkUsuario INT, FOREIGN KEY (fkUsuario) REFERENCES Usuario(id)
+);
 
 insert into MusicaFav(fkUsuario, fkMusica) values 
 (1,2),
@@ -52,9 +64,24 @@ insert into MusicaFav(fkUsuario, fkMusica) values
 (2,1),
 (3,1);
 
+
+SELECT * FROM MusicaFav;
+select * from Usuario;
+select * from resposta;
+
+select count(fkEnquete) as VGraf, resposta from resposta group by resposta
+
+union all
+
+select fkUsuario, fkEnquete from resposta where fkUsuario = 1;
+
+select fkMusica, count(fkMusica) from MusicaFav group by fkMusica;
+
+
 select fkMusica as Musica, count(fkMusica) voto from MusicaFav group by fkMusica
 
 union all
 
 SELECT * FROM MusicaFav  WHERE fkUsuario = 2;
 
+truncate table resposta;

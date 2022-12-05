@@ -10,6 +10,22 @@ header{
   flex-direction: column;
   height: auto;
 }
+body::-webkit-scrollbar {
+  width: 18px;               /* Largura do area do scroll bar */
+}
+body::-webkit-scrollbar-track {
+  background:rgb(250, 223, 200);    /* cor do fundo do scroll */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 20, 88);    /* cor da barra do scroll */
+  border-radius: 5px;            
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(4, 4, 70,0.8);    /* color of the scroll thumb */
+  border-radius: 5px;      
+}
 
 .banner{
   width: 100%;
@@ -40,6 +56,7 @@ header{
   font-family: 'Acme', sans-serif;
   display: flex;
   align-items: center;
+  text-shadow: 6px 5px 4px rgba(0,0,0,0.7);
   }
 
 
@@ -65,6 +82,7 @@ header{
   align-items: center;
   justify-content: space-between;
   list-style: none;
+  text-shadow: 4px 3px 3px rgba(0,0,0,0.7);
 }
 .header a {
   text-decoration: none;
@@ -116,7 +134,10 @@ text-align: justify;
   width: 400px;
   border-radius: 30px;
   margin-bottom: 30px;
+  box-shadow: 5px 5px 5px #0f0f0f;
 }
+
+
 
 .linha-vertical{
   height: 1300px; 
@@ -130,7 +151,7 @@ text-align: justify;
   width: 300px;
   border-radius: 30px;
   margin-bottom: 30px;
-
+  box-shadow: 5px 5px 5px #0f0f0f;
   align-self: center;
 }
 
@@ -184,9 +205,14 @@ text-align: justify;
   width: 30px;
   height: 30px;
   border-radius: 15px;
+  filter:drop-shadow(4px 6px 5px rgba(0,0,0,0.7));
+}
+.contato a{
+  align-self: center;
 }
 
 #img-su{
   width: 230px;
   height: 100px;
+  filter:drop-shadow(4px 6px 5px rgba(0,0,0,0.7));
 }
